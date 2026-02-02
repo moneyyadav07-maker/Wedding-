@@ -3,102 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Eternal Union ❤️</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <title>Waifuu Weds Bakaa | The Eternal Union</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@900&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #d4af37; --maroon: #800000; --cream: #fffdf5; }
+        :root { --gold: #d4af37; --maroon: #630d16; --cream: #fffdf5; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            background: var(--cream); 
-            font-family: 'Poppins', sans-serif; 
-            overflow: hidden; 
-            color: var(--maroon);
-        }
+        body { background: var(--cream); font-family: 'Poppins', sans-serif; overflow: hidden; color: var(--maroon); }
 
-        /* Full Screen Scenes */
         .scene { 
-            height: 100vh; width: 100vw; 
-            display: none; 
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: center; 
-            position: absolute;
-            background: radial-gradient(circle, #fffdf5 0%, #f7e7ce 100%);
+            display: none; height: 100vh; width: 100vw; 
+            flex-direction: column; align-items: center; justify-content: center; 
+            position: absolute; text-align: center; background: radial-gradient(circle, #fffdf5 0%, #fceed1 100%);
             padding: 20px;
-            text-align: center;
         }
-        .active { display: flex; animation: slideUp 1s cubic-bezier(0.19, 1, 0.22, 1); }
+        .active { display: flex; animation: zoomIn 0.6s ease-out; }
+        @keyframes zoomIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
 
-        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
-
-        /* Typography */
-        h1 { font-family: 'Playfair Display'; font-size: 4rem; color: var(--maroon); margin-bottom: 10px; }
-        .quote { font-family: 'Dancing Script'; font-size: 2.2rem; color: var(--gold); margin-bottom: 30px; }
-        .main-text { font-size: 1.8rem; font-weight: 600; line-height: 1.5; max-width: 800px; }
-
-        /* Elegant Button */
-        .btn-gold {
-            background: var(--maroon); color: white;
-            padding: 18px 45px; border: 2px solid var(--gold);
-            border-radius: 50px; font-size: 1.4rem; font-weight: bold;
-            cursor: pointer; transition: 0.4s; margin-top: 30px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        /* BIG CENTERED CARDS */
+        .card-container {
+            position: relative; width: 340px; height: 500px;
+            display: flex; justify-content: center; align-items: center;
         }
-        .btn-gold:hover { background: var(--gold); color: var(--maroon); transform: scale(1.1); }
-
-        /* Scene 2: The Cards (Large & Aesthetic) */
-        .card-box { position: relative; width: 350px; height: 500px; }
-        .card { 
-            position: absolute; width: 100%; height: 100%; 
-            border-radius: 20px; border: 8px solid white;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-            transition: 1.2s cubic-bezier(0.23, 1, 0.32, 1);
-            cursor: pointer;
+        .wedding-card {
+            position: absolute; width: 100%; height: 100%;
+            border-radius: 25px; border: 8px solid white;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            transition: 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer; object-fit: cover;
         }
-        .card-top { z-index: 2; }
-        .card-removed { transform: translateX(150%) rotate(30deg); opacity: 0; }
-
-        /* Scene 3: Varmala Ceremony */
-        .varmala-container {
-            width: 380px; height: 500px;
-            background: white url('characters.png') no-repeat center;
-            background-size: contain;
-            border-radius: 30px; border: 4px solid var(--gold);
-            position: relative; box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        .card-out { transform: rotate(-20deg) translateX(-150%) scale(0.5); opacity: 0; }
+        
+        /* UNIQUE VARMALA GAME */
+        .varmala-stage {
+            width: 380px; height: 520px; background: white url('characters.png') no-repeat center;
+            background-size: contain; border: 4px solid var(--gold); border-radius: 30px;
+            position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
-        .garland {
-            width: 100px; height: 100px;
-            background: rgba(255,255,255,0.8);
-            border: 5px dashed var(--gold); border-radius: 50%;
-            position: absolute; bottom: 20px; left: 37%;
+        .target-glow {
+            position: absolute; top: 130px; left: 85px; width: 100px; height: 100px;
+            border-radius: 50%; border: 2px dashed var(--gold);
+            animation: pulse-glow 1.5s infinite;
+        }
+        @keyframes pulse-glow { 0% { transform: scale(0.9); opacity: 0.3; } 50% { transform: scale(1.1); opacity: 0.7; } 100% { transform: scale(0.9); opacity: 0.3; } }
+
+        .varmala-item {
+            width: 110px; height: 110px; background: rgba(255,255,255,0.7);
+            border: 6px double var(--gold); border-radius: 50%;
+            position: absolute; bottom: 30px; left: 35%;
             display: flex; align-items: center; justify-content: center;
-            font-size: 50px; cursor: grab; z-index: 10; touch-action: none;
+            font-size: 55px; cursor: grab; z-index: 100; touch-action: none;
+            backdrop-filter: blur(5px);
         }
 
-        /* Scene 4: The Fire Pheras */
-        .ritual-circle {
-            width: 350px; height: 350px; border: 2px dashed var(--gold);
+        /* DIALOGUES & PHERAS */
+        .glass-box {
+            background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px);
+            padding: 25px; border-radius: 20px; border: 2px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin: 20px; font-weight: 600; font-size: 1.4rem; max-width: 450px;
+        }
+
+        .agni-circle {
+            width: 320px; height: 320px; border: 3px solid var(--gold);
             border-radius: 50%; position: relative;
             display: flex; align-items: center; justify-content: center;
         }
-        .agni { width: 120px; z-index: 5; animation: agni-glow 1s infinite alternate; }
-        @keyframes agni-glow { from { filter: drop-shadow(0 0 10px orange); } to { filter: drop-shadow(0 0 30px red); } }
-        
-        .couple-sprite {
-            position: absolute; width: 100px;
-            top: -50px; transition: 2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+        .couple-anim { position: absolute; width: 110px; top: -55px; transition: 2s ease-in-out; }
 
-        /* Dialogues */
-        .bubble {
-            background: white; padding: 25px; border-radius: 25px;
-            border-left: 10px solid var(--maroon); box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin: 20px; font-size: 1.5rem; font-weight: bold;
+        button {
+            padding: 16px 45px; background: var(--maroon); color: white;
+            border: none; border-radius: 50px; font-size: 1.3rem; font-weight: bold;
+            cursor: pointer; margin-top: 20px; box-shadow: 0 10px 20px rgba(99, 13, 22, 0.3);
         }
-
-        /* Petal Rain */
-        .petal { position: fixed; color: #ff69b4; font-size: 20px; z-index: 100; pointer-events: none; }
     </style>
 </head>
 <body>
@@ -106,116 +82,121 @@
     <audio id="music" loop><source src="shehnai.mp3" type="audio/mpeg"></audio>
 
     <div id="s1" class="scene active">
-        <h1>Welcome to Our Forever</h1>
-        <p class="quote">Ek khubsurat safar ki shuruwat...</p>
-        <div onclick="init()" style="font-size: 150px; cursor: pointer;">💌</div>
-        <p class="main-text"><b>Tap the letter to enter our wedding hall</b></p>
+        <h1 style="font-family: 'Playfair Display'; font-size: 4rem;">The Grand Wedding</h1>
+        <p style="font-family: 'Dancing Script'; font-size: 2.2rem; color: var(--gold);">Waiting for the beautiful bride...</p>
+        <div onclick="start()" style="font-size: 140px; cursor: pointer; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));">🎁</div>
+        <p style="font-weight: bold; margin-top: 15px;">Tap the gift to begin</p>
     </div>
 
     <div id="s2" class="scene">
-        <h1>The Invitation</h1>
-        <div class="card-box">
-            <img src="1000009963.png" id="c1" class="card card-top" onclick="removeCard()">
-            <img src="1000009964.png" id="c2" class="card">
+        <h1>Invitation</h1>
+        <div class="card-container">
+            <img src="1000009963.png" id="card1" class="wedding-card" onclick="nextCard()" style="z-index: 5;">
+            <img src="1000009964.png" id="card2" class="wedding-card" style="z-index: 4;">
         </div>
-        <div id="invite-btn-div" style="display:none;">
-            <p class="main-text" style="margin-top:20px;">After so many years, the day is finally here. ❤️</p>
-            <button class="btn-gold" onclick="goVarmala()">Chal Shadi Karte Hain! 🌸</button>
+        <div id="invite-btn" style="display:none; margin-top: 30px;">
+            <p class="glass-box">It's finally happening! Ready for the rituals? ❤️</p>
+            <button onclick="goVarmala()">Proceed to Varmala Ceremony 🌸</button>
         </div>
     </div>
 
     <div id="s3" class="scene">
-        <h1>The Varmala Ritual</h1>
-        <div class="varmala-container" id="stage">
-            <div id="varmala" class="garland">🌸</div>
+        <h1>Varmala Ceremony</h1>
+        <div class="varmala-stage" id="stage">
+            <div class="target-glow"></div>
+            <div id="varmala" class="varmala-item">🌸</div>
         </div>
-        <div id="v-speech" class="bubble" style="display:none;"></div>
-        <button id="p-btn" class="btn-gold" style="display:none;" onclick="goPhera()">Begin 7 Pheras 🔥</button>
+        <div id="v-speech" class="glass-box" style="display:none;"></div>
+        <button id="p-btn" style="display:none;" onclick="goPheras()">Take the 7 Pheras 🔥</button>
     </div>
 
     <div id="s4" class="scene">
-        <h1>Saptapadi: The 7 Vows</h1>
-        <div class="ritual-circle">
-            <img src="https://cdn-icons-png.flaticon.com/512/785/785116.png" class="agni">
-            <div id="couple" class="couple-sprite"><img src="characters.png" style="width:100px;"></div>
+        <h1>The Saptapadi</h1>
+        <div class="agni-circle">
+            <img src="https://cdn-icons-png.flaticon.com/512/785/785116.png" style="width: 100px; animation: flicker 0.2s infinite alternate;">
+            <div id="couple" class="couple-anim"><img src="characters.png" style="width: 110px;"></div>
         </div>
-        <div id="vow-box" class="bubble">Kya aap 7 vachan lene ke liye taiyar hain?</div>
-        <button id="vow-btn" class="btn-gold" onclick="nextPhera()">Take Phera 1</button>
+        <div id="vow-text" class="glass-box">Ready for the 7 promises?</div>
+        <button id="vow-btn" onclick="nextPhera()">Take Phera 1</button>
     </div>
 
     <script>
-        const music = document.getElementById('music');
-        let count = 0;
-        const vows = [
-            "1. Hamesha ek doosre ko pareshaan karenge! 😁",
-            "2. Tu mujhe aise hi maarte rehna, main seh lunga 🥹",
-            "3. Ab toh main teko hamesha kissii kar sakunga ❤️",
-            "4. Saari jindagi ek hi bed pe soyenge chipak ke 🫠",
-            "5. Khoob ghoomi-ghoomi karenge! 😤💓",
-            "6. Saath mein games khelenge aur main tujhe jeetne dunga 😁",
-            "7. Har janam mein tum hi meri partner banogi! 🥹💍"
+        const audio = document.getElementById('music');
+        let phera = 0;
+        const promises = [
+            "1. Ham dono hamesha aek doosre ko pareshaan krte rhe 😁😁",
+            "2. Tu aise hi mujhe maarte reh🥹",
+            "3. Mai bhi teko hamesha kissii kr skunga ab toh 😁😁❤️❤️",
+            "4. Saare jindagi aek hi bed pe soyenge chipak ke 🫠🥹",
+            "5. Khoob ghoomi ghoomi krenge 😤💓💓",
+            "6. Saath mai games khelenge 😁💓❤️",
+            "7. Har life mai aap hi mere partner ho 🥹💓❤️"
         ];
 
-        function init() { music.play(); changeScene('s2'); }
-        
-        function removeCard() { 
-            document.getElementById('c1').classList.add('card-removed');
-            setTimeout(() => { document.getElementById('invite-btn-div').style.display='block'; }, 1000);
-        }
+        function start() { audio.play(); changeScene('s2'); }
 
         function changeScene(id) {
             document.querySelectorAll('.scene').forEach(s => s.classList.remove('active'));
             document.getElementById(id).classList.add('active');
         }
 
-        function goVarmala() { changeScene('s3'); startDrag(); }
+        function nextCard() {
+            document.getElementById('card1').classList.add('card-out');
+            setTimeout(() => { document.getElementById('invite-btn').style.display='block'; }, 1000);
+        }
 
-        function startDrag() {
+        function goVarmala() { changeScene('s3'); dragSystem(); }
+
+        function dragSystem() {
             const v = document.getElementById('varmala');
-            const move = (e) => {
+            const handleMove = (e) => {
                 let x = e.type.includes('touch') ? e.touches[0].pageX : e.pageX;
                 let y = e.type.includes('touch') ? e.touches[0].pageY : e.pageY;
-                v.style.left = (x - 50) + 'px'; v.style.top = (y - 50) + 'px';
+                v.style.left = (x - 55) + 'px'; v.style.top = (y - 55) + 'px';
             };
-            v.addEventListener('mousedown', () => window.addEventListener('mousemove', move));
-            v.addEventListener('touchstart', () => window.addEventListener('touchmove', move));
+            v.addEventListener('mousedown', () => window.addEventListener('mousemove', handleMove));
+            v.addEventListener('touchstart', () => window.addEventListener('touchmove', handleMove));
             window.addEventListener('mouseup', () => {
-                window.removeEventListener('mousemove', move);
-                if(parseInt(v.style.top) < 300) { v.style.top="130px"; v.style.left="90px"; showDialogs(); }
+                window.removeEventListener('mousemove', handleMove);
+                // Snap Logic
+                if(parseInt(v.style.top) < 250 && parseInt(v.style.left) < 200) {
+                    v.style.top = "125px"; v.style.left = "80px"; finishVarmala();
+                }
             });
         }
 
-        function showDialogs() {
-            const b = document.getElementById('v-speech'); b.style.display='block';
-            b.innerHTML = "Baka: Arreee ab kya saari umar iske saath katne padege? 😰";
+        function finishVarmala() {
+            const b = document.getElementById('v-speech'); b.style.display = 'block';
+            b.innerHTML = "<b>Baka:</b> Arreee ab kya saari umar iske saath katne padege? 😰";
             setTimeout(() => {
-                b.innerHTML = "Waifuu: Tere andar himmat hai mujhse door jaane ki? Chup-chaap mera ban! 😤💖";
-                document.getElementById('p-btn').style.display='block';
+                b.innerHTML = "<b>Waifu:</b> Tere andar himmat hai mujhse door jaane ki? Chup-chaap mera banja ab! 😤💖";
+                document.getElementById('p-btn').style.display = 'block';
             }, 3000);
         }
 
-        function goPhera() { changeScene('s4'); setInterval(rain, 300); }
+        function goPheras() { changeScene('s4'); setInterval(createPetal, 300); }
 
-        function rain() {
-            const p = document.createElement('div'); p.className='petal';
-            p.innerHTML = '🌸'; p.style.left = Math.random()*100+'vw';
-            p.style.top = '-20px'; p.style.transition = '4s linear';
+        function createPetal() {
+            const p = document.createElement('div');
+            p.innerHTML = '🌸'; p.style.position = 'fixed';
+            p.style.left = Math.random()*100+'vw'; p.style.top = '-20px';
+            p.style.fontSize = '24px'; p.style.transition = '4s linear';
             document.body.appendChild(p);
             setTimeout(() => { p.style.top = '100vh'; p.style.transform = 'rotate(360deg)'; }, 10);
             setTimeout(() => p.remove(), 4000);
         }
 
         function nextPhera() {
-            if(count < 7) {
-                const rotate = (count+1) * 51;
-                document.getElementById('couple').style.transformOrigin = "50% 225px";
-                document.getElementById('couple').style.transform = `rotate(${rotate}deg)`;
-                document.getElementById('vow-box').innerHTML = vows[count];
-                count++;
-                document.getElementById('vow-btn').innerHTML = count < 7 ? `Take Phera ${count+1}` : "Always Yours! ❤️";
+            if(phera < 7) {
+                const angle = (phera + 1) * 51;
+                document.getElementById('couple').style.transformOrigin = "50% 215px";
+                document.getElementById('couple').style.transform = `rotate(${angle}deg)`;
+                document.getElementById('vow-text').innerHTML = promises[phera];
+                phera++;
+                document.getElementById('vow-btn').innerHTML = phera < 7 ? `Take Phera ${phera+1}` : "Always Yours! ❤️💍";
             } else {
-                document.getElementById('vow-box').innerHTML = "<h1>Shadi Sampann Hui!</h1>💍 Ab tum sirf meri ho! 🥰";
-                document.getElementById('vow-btn').style.display='none';
+                document.getElementById('vow-text').innerHTML = "<h1>Marriage Completed! ❤️</h1>Now we are officially Baka & Waifu forever!";
+                document.getElementById('vow-btn').style.display = 'none';
             }
         }
     </script>
